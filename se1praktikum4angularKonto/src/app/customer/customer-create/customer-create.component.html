@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <section>
+        <form novalidate [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+          <fieldset>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text"
+                     class="form-control"
+                     formControlName="name">
+            </div>
+          </fieldset>
+
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email"
+                   class="form-control"
+                   formControlName="email">
+          </div>
+
+          <button type="submit" class="btn btn-primary"  [disabled]="!customerForm.valid" >Submit</button>
+          <button type="button" class="btn btn-warning" (click)="redirectCustomerPage()">Cancel</button>
+          <pre>{{customerForm.value | json}}</pre>
+        </form>
+      </section>
+    </div>
+  </div>
+</div>
